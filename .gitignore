@@ -338,3 +338,8 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+
+# publish to heroku script
+publish.bat
+/SnivelingShitApi/publish.bat
+/SnivelingShitApi/private_data.txt
