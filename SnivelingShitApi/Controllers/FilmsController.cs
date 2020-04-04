@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SnivelingShitApi.DataAccess;
@@ -79,7 +77,7 @@ namespace SnivelingShitApi.Controllers
             _context.Films.Add(film);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetFilm", new { id = film.Id }, film);
+            return CreatedAtAction("GetFilm", new {id = film.Id}, film);
         }
 
         // DELETE: api/Films/5
