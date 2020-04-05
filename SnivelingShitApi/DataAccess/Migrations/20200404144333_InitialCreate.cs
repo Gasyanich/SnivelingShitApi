@@ -17,10 +17,7 @@ namespace SnivelingShitApi.DataAccess.Migrations
                     Status = table.Column<string>(maxLength: 50, nullable: false),
                     Genre = table.Column<string>(maxLength: 100, nullable: false)
                 },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Film", x => x.Id);
-                });
+                constraints: table => { table.PrimaryKey("PK_Film", x => x.Id); });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

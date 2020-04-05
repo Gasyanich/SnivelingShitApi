@@ -25,7 +25,6 @@ namespace SnivelingShitApi.Services.VkApiCreator
             var api = new VkApi(serviceCollection);
 
             api.Authorize(new ApiAuthParams {Settings = Settings.All, Login = _login, Password = _password});
-
             return api;
         }
     }

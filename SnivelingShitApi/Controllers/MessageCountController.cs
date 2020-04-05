@@ -28,11 +28,5 @@ namespace SnivelingShitApi.Controllers
         {
             return await _messageCountService.GetDefaultMessageCountInfosAsync();
         }
-
-        [HttpGet("test")]
-        public ActionResult<string> GetTestMessage()
-        {
-            return "hello it's works blyat'";
-        }
     }
 }
