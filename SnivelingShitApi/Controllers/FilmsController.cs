@@ -96,6 +96,30 @@ namespace SnivelingShitApi.Controllers
             return film;
         }
 
+        [HttpPut("markAsViewed")]
+        public async Task<ActionResult<List<Film>>> MarkAsViewed(List<Film> films)
+        {
+            var updatedFilms = new List<Film>();
+            foreach (var film in _context.Films.Where(film => films.Exists(f => f.Id == film.Id)))
+            {
+                film.Status = "Просмотрено";
+                _context.Entry(film).State = EntityState.Modified;
+
+                updatedFilms.Add(film);
+            }
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                return NoContent();
+            }
+
+            return updatedFilms;
+        }
+
         private bool FilmExists(int id)
         {
             return _context.Films.Any(e => e.Id == id);
